@@ -3,14 +3,14 @@ package semi.dto;
 import java.util.Date;
 
 public class classInfoDTO {
-	private int info_classId;
-	private String info_tutorId;
+	private int info_classid;
+	private String info_tutorid;
 	private String info_category;
 	private String info_title;
 	private String info_explain;
 	private String info_intro;
 	private String info_addr;
-	private int info_maxPerson;
+	private int info_maxperson;
 	private String info_gender;
 	private int info_price;
 	private String info_img1;
@@ -19,25 +19,25 @@ public class classInfoDTO {
 	private Date info_start;
 	private Date info_end;
 	private Date info_date;
-	private String info_avgStar;
+	private String info_avgstar;
 	private int info_click;
 	public classInfoDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public classInfoDTO(int info_classId, String info_tutorId, String info_category, String info_title,
-			String info_explain, String info_intro, String info_addr, int info_maxPerson, String info_gender,
+	public classInfoDTO(int info_classid, String info_tutorid, String info_category, String info_title,
+			String info_explain, String info_intro, String info_addr, int info_maxperson, String info_gender,
 			int info_price, String info_img1, String info_img2, String info_img3, Date info_start, Date info_end,
-			Date info_date, String info_avgStar, int info_click) {
+			Date info_date, String info_avgstar, int info_click) {
 		super();
-		this.info_classId = info_classId;
-		this.info_tutorId = info_tutorId;
+		this.info_classid = info_classid;
+		this.info_tutorid = info_tutorid;
 		this.info_category = info_category;
 		this.info_title = info_title;
 		this.info_explain = info_explain;
 		this.info_intro = info_intro;
 		this.info_addr = info_addr;
-		this.info_maxPerson = info_maxPerson;
+		this.info_maxperson = info_maxperson;
 		this.info_gender = info_gender;
 		this.info_price = info_price;
 		this.info_img1 = info_img1;
@@ -46,20 +46,20 @@ public class classInfoDTO {
 		this.info_start = info_start;
 		this.info_end = info_end;
 		this.info_date = info_date;
-		this.info_avgStar = info_avgStar;
+		this.info_avgstar = info_avgstar;
 		this.info_click = info_click;
 	}
-	public int getInfo_classId() {
-		return info_classId;
+	public int getInfo_classid() {
+		return info_classid;
 	}
-	public void setInfo_classId(int info_classId) {
-		this.info_classId = info_classId;
+	public void setInfo_classid(int info_classid) {
+		this.info_classid = info_classid;
 	}
-	public String getInfo_tutorId() {
-		return info_tutorId;
+	public String getInfo_tutorid() {
+		return info_tutorid;
 	}
-	public void setInfo_tutorId(String info_tutorId) {
-		this.info_tutorId = info_tutorId;
+	public void setInfo_tutorid(String info_tutorid) {
+		this.info_tutorid = info_tutorid;
 	}
 	public String getInfo_category() {
 		return info_category;
@@ -91,11 +91,11 @@ public class classInfoDTO {
 	public void setInfo_addr(String info_addr) {
 		this.info_addr = info_addr;
 	}
-	public int getInfo_maxPerson() {
-		return info_maxPerson;
+	public int getInfo_maxperson() {
+		return info_maxperson;
 	}
-	public void setInfo_maxPerson(int info_maxPerson) {
-		this.info_maxPerson = info_maxPerson;
+	public void setInfo_maxperson(int info_maxperson) {
+		this.info_maxperson = info_maxperson;
 	}
 	public String getInfo_gender() {
 		return info_gender;
@@ -145,11 +145,11 @@ public class classInfoDTO {
 	public void setInfo_date(Date info_date) {
 		this.info_date = info_date;
 	}
-	public String getInfo_avgStar() {
-		return info_avgStar;
+	public String getInfo_avgstar() {
+		return info_avgstar;
 	}
-	public void setInfo_avgStar(String info_avgStar) {
-		this.info_avgStar = info_avgStar;
+	public void setInfo_avgstar(String info_avgstar) {
+		this.info_avgstar = info_avgstar;
 	}
 	public int getInfo_click() {
 		return info_click;

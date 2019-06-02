@@ -13,7 +13,7 @@
 
 <script>
  $("button").on("click",function(){
-	 location.href="info.category?category=main";
+	 location.href="info.category?category=main&select=info_avgstar desc";
  })
 </script>
 </body>

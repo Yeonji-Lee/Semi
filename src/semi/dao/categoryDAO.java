@@ -48,7 +48,7 @@ public class categoryDAO {
 			dto.setInfo_classid(classid);
 			//�� �����ο� set
 			int count = this.getTotalForCategory(classid);
-			dto.setTotalCount(count);
+			dto.setTotalcount(count);
 			list.add(dto);
 			//Ʃ������ set
 			String[] tutor = this.getTutorInfoForCategory(classid);
@@ -83,7 +83,7 @@ public class categoryDAO {
 			int classid = rs.getInt("info_classid");
 			//�� �����ο� set
 			int count = this.getTotalForCategory(classid);
-			dto.setTotalCount(count);
+			dto.setTotalcount(count);
 			list.add(dto);
 			//Ʃ������ set
 			String[] tutor = this.getTutorInfoForCategory(classid);
@@ -118,7 +118,7 @@ public class categoryDAO {
 			int classid = rs.getInt("info_classid");
 			//�� �����ο� set
 			int count = this.getTotalForCategory(classid);
-			dto.setTotalCount(count);
+			dto.setTotalcount(count);
 			list.add(dto);
 			//Ʃ������ set
 			String[] tutor = this.getTutorInfoForCategory(classid);
@@ -191,17 +191,16 @@ public class categoryDAO {
 	public static int pageTotalCount = 0;
 	
 	public List<String> getNavi(int currentPage, int recordTotalCount) throws Exception {
-		System.out.println("��Ż���ڵ�:"+recordTotalCount);
+		System.out.println("레코드토탈카운트:"+recordTotalCount);
 		recordCountPerPage = 6;
 		int naviCountPerPage = 3;	
-		int pageTotalCount = 0; // ��������� ��
+		int pageTotalCount = 0; 
 		if(recordTotalCount % recordCountPerPage == 0) {
 			pageTotalCount = recordTotalCount / recordCountPerPage;
 		}else{
 			pageTotalCount = recordTotalCount / recordCountPerPage + 1 ;
 		}
 		
-		// ���������� ���� ���� �� ���� (������ ���� ���� �ۼ��ϴ� ������ �����ڵ�) 
 		if(currentPage < 1) {
 			currentPage = 1;
 		}else if(currentPage > pageTotalCount) {

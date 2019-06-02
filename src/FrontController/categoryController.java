@@ -3,6 +3,7 @@ package FrontController;
 import java.io.IOException;
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,11 +26,11 @@ public class categoryController extends HttpServlet {
 
 		categoryDAO dao = new categoryDAO();
 		if(cmd.contentEquals("/info.category")) {
-			System.out.println("-----------------reset");
+			System.out.println("-----------------reset"); //검사
 			try {
 				//페이지네비
 				String nowPage = request.getParameter("nowPage");
-				System.out.println("nowPage : "+nowPage);
+				//System.out.println("nowPage : "+nowPage);
 				int currentPage = 0;
 				int recordTotalCount = 0;
 				if(nowPage==null) {				
@@ -39,45 +40,53 @@ public class categoryController extends HttpServlet {
 				}
 				int end = currentPage * categoryDAO.recordCountPerPage;
 				int start = (currentPage * categoryDAO.recordCountPerPage) - (categoryDAO.recordCountPerPage - 1);
-				System.out.println(start + "start, " + end + "end");
+				//System.out.println(start + "start, " + end + "end");
 
+				
+				//셀렉트, 카테고리, 지역 가져오
 				String select = request.getParameter("select");
+				String ssSelect = (String) request.getSession().getAttribute("ssSelect");
 				String category = request.getParameter("category");
 				String ssCategory = (String) request.getSession().getAttribute("ssCategory");
 				String addr = request.getParameter("addr");
 				
+				if(select == null) {
+					select = ssSelect;
+				}
 				if(category == null) {
 					category = ssCategory;
 				}	
-				
-				System.out.println(category);
-				
-				
+	
 				List<CategoryDTO> list = null;
 				
-				System.out.println("select:"+select+" category:"+category+" addr:"+addr);
+				//System.out.println("select:"+select+" category:"+category+" addr:"+addr);
 				
+				
+				//1.추천 부분
 				if(select == null && category.contentEquals("main") || category ==null && addr == null) {
-					System.out.println("여기");
+					request.getSession().setAttribute("ssSelect", select);
 					request.getSession().setAttribute("ssCategory", "main");
 					list = dao.getInfoBySelect(select, start, end);
 					
 				}
-				
+				//1-1. 추천 부분 - 셀렉트있는 경우
 				if (category.contentEquals("main") || category ==null && addr == null) {
+					request.getSession().setAttribute("ssSelect", select);
 					request.getSession().setAttribute("ssCategory", "main");
 					list = dao.getInfoBySelect(select, start, end);	
 					recordTotalCount = dao.recordTotalCount();
-					System.out.println("recordTotalCount:"+recordTotalCount);
+					
 
-					//카테고리
+				//2. 카테고리 부분
 				}else if(addr == null){
 					System.out.println("카테고리:"+category);
 					System.out.println("select:"+select);
+					request.getSession().setAttribute("ssSelect", select);
 					request.getSession().setAttribute("ssCategory", category);
 					list = dao.getInfoByCategory(select, category, start, end);
 					recordTotalCount = dao.getTotalByMenu("info_category", category);
 					
+				//3. 지역 부분	
 				}else {	
 					request.getSession().setAttribute("ssSelect", select);
 					System.out.println("addr"+addr);
@@ -98,15 +107,14 @@ public class categoryController extends HttpServlet {
 					list = dao.getInfoByLocation(select, addr, start, end);
 					recordTotalCount = list.size();
 				}
-				request.setAttribute("list", list);
-				System.out.println("리스트사이즈:"+list.size());	
+				
+				request.setAttribute("list", list);	
 
-				//네비
+				//페이지 네비 마무리
 				List<String> navi = dao.getNavi(currentPage, recordTotalCount);
 				int size = navi.size();
 				request.setAttribute("navi", navi);
 				request.setAttribute("size", size);
-
 				request.getRequestDispatcher("category.jsp").forward(request, response);
 
 			} catch (Exception e) {

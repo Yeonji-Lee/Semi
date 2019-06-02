@@ -9,7 +9,7 @@ public class CategoryDTO {
 	private String info_img1;
 	private String info_img2;
 	private String info_img3;
-	private int totalCount;
+	private int totalcount;
 	private String m_nickname;
 	private String m_photo;
 	public CategoryDTO() {
@@ -17,7 +17,7 @@ public class CategoryDTO {
 		// TODO Auto-generated constructor stub
 	}
 	public CategoryDTO(int info_classid, String info_title, String info_addr, String info_avgstar, int info_price,
-			String info_img1, String info_img2, String info_img3, int totalCount, String m_nickname, String m_photo) {
+			String info_img1, String info_img2, String info_img3, int totalcount, String m_nickname, String m_photo) {
 		super();
 		this.info_classid = info_classid;
 		this.info_title = info_title;
@@ -27,7 +27,7 @@ public class CategoryDTO {
 		this.info_img1 = info_img1;
 		this.info_img2 = info_img2;
 		this.info_img3 = info_img3;
-		this.totalCount = totalCount;
+		this.totalcount = totalcount;
 		this.m_nickname = m_nickname;
 		this.m_photo = m_photo;
 	}
@@ -79,11 +79,11 @@ public class CategoryDTO {
 	public void setInfo_img3(String info_img3) {
 		this.info_img3 = info_img3;
 	}
-	public int getTotalCount() {
-		return totalCount;
+	public int getTotalcount() {
+		return totalcount;
 	}
-	public void setTotalCount(int totalCount) {
-		this.totalCount = totalCount;
+	public void setTotalcount(int totalCount) {
+		this.totalcount = totalCount;
 	}
 	public String getM_nickname() {
 		return m_nickname;

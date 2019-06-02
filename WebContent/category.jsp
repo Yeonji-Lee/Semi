@@ -221,7 +221,7 @@ a:hover {
 							<div class="row category">
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=design"> 디자인 <input
+										<li><a href="info.category?category=design&select=info_avgstar desc"> 디자인 <input
 												type=hidden value="design" class=cate>
 										</a></li>
 
@@ -229,26 +229,26 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=it" class=cateA>IT
+										<li><a href="info.category?category=it&select=info_avgstar desc" class=cateA>IT
 										</a> <input type=hidden value="it" class=cate></li>
 
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=lang">언어 </a> <input
+										<li><a href="info.category?category=lang&select=info_avgstar desc">언어 </a> <input
 											type=hidden value="lang" class=cate></li>
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=life">라이프 스타일 </a> <input
+										<li><a href="info.category?category=life&select=info_avgstar desc">라이프 스타일 </a> <input
 											type=hidden value="life" class=cate></li>
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=money">제테크 </a> <input
+										<li><a href="info.category?category=money&select=info_avgstar desc">제테크 </a> <input
 											type=hidden value="beauty" class=cate></li>
 									</ul>
 								</div>
@@ -266,7 +266,7 @@ a:hover {
 							<div class="row location">
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?addr=se"> 서울 </a></li>
+										<li><a href="info.category?addr=se&select=info_avgstar desc"> 서울 </a></li>
 
 										<div class="col d-none d-md-block">
 											<div class="dropdown-divider"></div>
@@ -286,10 +286,10 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?addr=kk"> 경기 </a></li>
+										<li><a href="info.category?addr=kk&select=info_avgstar desc"> 경기 </a></li>
 
 										<div class="col d-none d-md-block">
-											<div class="dropdown-divider"></div>
+											<div class="dropdown-divider&select=info_avgstar desc"></div>
 											<li><a href="info.category?addr=kk-1">일산/파주</a></li>
 											<li><a href="info.category?addr=kk-2">용인/분당/수원</a></li>
 											<li><a href="info.category?addr=kk-3">인천/부천</a></li>
@@ -300,7 +300,7 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?addr=ch"> 충청 </a></li>
+										<li><a href="info.category?addr=ch&select=info_avgstar desc"> 충청 </a></li>
 
 										<div class="col d-none d-md-block">
 											<div class="dropdown-divider"></div>
@@ -311,7 +311,7 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?addr=ks"> 경상 </a></li>
+										<li><a href="info.category?addr=ks&select=info_avgstar desc"> 경상 </a></li>
 										<div class="col d-none d-md-block">
 											<div class="dropdown-divider"></div>
 											<li><a href="info.category?addr=ks-1">대구</a></li>
@@ -323,7 +323,7 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?addr=jl"> 전라 </a></li>
+										<li><a href="info.category?addr=jl&select=info_avgstar desc"> 전라 </a></li>
 										<div class="col d-none d-md-block">
 											<div class="dropdown-divider"></div>
 											<li><a href="info.category?addr=jl-1">광주</a></li>
@@ -333,7 +333,7 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?addr=kwjj"> 강원 / 제주 </a></li>
+										<li><a href="info.category?addr=kwjj&select=info_avgstar desc"> 강원 / 제주 </a></li>
 										<div class="col d-none d-md-block">
 											<div class="dropdown-divider"></div>
 											<li><a href="info.category?addr=kwjj-1">강원</a></li>
