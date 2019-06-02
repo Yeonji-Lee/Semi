@@ -216,9 +216,9 @@ public class categoryDAO {
 		if(endNavi>pageTotalCount) {
 			endNavi = pageTotalCount;
 		}
-//		System.out.println("������ġ : " + currentPage);
-//		System.out.println("�׺���� : " + startNavi);
-//		System.out.println("�׺� �� : " + endNavi);
+//		System.out.println("현재 페이지 : " + currentPage);
+//		System.out.println("시작 : " + startNavi);
+//		System.out.println("끝 : " + endNavi);
 
 		boolean needPrev = true;
 		boolean needNext = true;
@@ -232,13 +232,13 @@ public class categoryDAO {
 		}
 		List<String> list = new ArrayList<String>();
 		if(needPrev) {
-			list.add("<���� ");
+			list.add("<이전 ");
 		}
 		for(int i = startNavi ; i <= endNavi ; i++) {
 			list.add(i+" ");
 		}
 		if(needNext) {
-			list.add("����>");
+			list.add("다음>");
 		}
 		return list;
 	}	

@@ -32,7 +32,7 @@ public class categoryController extends HttpServlet {
 				System.out.println("nowPage : "+nowPage);
 				int currentPage = 0;
 				int recordTotalCount = 0;
-				if(nowPage==null) {
+				if(nowPage==null) {				
 					currentPage = 1;
 				}else {
 					currentPage = Integer.parseInt(nowPage);
@@ -41,20 +41,31 @@ public class categoryController extends HttpServlet {
 				int start = (currentPage * categoryDAO.recordCountPerPage) - (categoryDAO.recordCountPerPage - 1);
 				System.out.println(start + "start, " + end + "end");
 
-
-				String select = request.getParameter("select");				
+				String select = request.getParameter("select");
 				String category = request.getParameter("category");
+				String ssCategory = (String) request.getSession().getAttribute("ssCategory");
 				String addr = request.getParameter("addr");
 				
-				List<CategoryDTO> list = null;
-
+				if(category == null) {
+					category = ssCategory;
+				}	
 				
-				if(select == null && category == null && addr == null) {
-					select = "info_avgstar desc";	
+				System.out.println(category);
+				
+				
+				List<CategoryDTO> list = null;
+				
+				System.out.println("select:"+select+" category:"+category+" addr:"+addr);
+				
+				if(select == null && category.contentEquals("main") || category ==null && addr == null) {
+					System.out.println("여기");
+					request.getSession().setAttribute("ssCategory", "main");
 					list = dao.getInfoBySelect(select, start, end);
+					
 				}
-
-				if (category == null && addr == null) {
+				
+				if (category.contentEquals("main") || category ==null && addr == null) {
+					request.getSession().setAttribute("ssCategory", "main");
 					list = dao.getInfoBySelect(select, start, end);	
 					recordTotalCount = dao.recordTotalCount();
 					System.out.println("recordTotalCount:"+recordTotalCount);
@@ -63,11 +74,12 @@ public class categoryController extends HttpServlet {
 				}else if(addr == null){
 					System.out.println("카테고리:"+category);
 					System.out.println("select:"+select);
-					
+					request.getSession().setAttribute("ssCategory", category);
 					list = dao.getInfoByCategory(select, category, start, end);
 					recordTotalCount = dao.getTotalByMenu("info_category", category);
 					
 				}else {	
+					request.getSession().setAttribute("ssSelect", select);
 					System.out.println("addr"+addr);
 					if(addr.equals("se")) {
 						addr = "서울";

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -50,8 +50,9 @@ div {
 }
 
 .loactionMenu {
-	padding:0px;
+	padding: 0px;
 }
+
 .dropdown-menu {
 	width: 100%;
 	text-align: center;
@@ -89,7 +90,7 @@ a {
 }
 
 a:hover {
-	color: white;
+	color: #d8b13a;
 }
 
 .has-megamenu {
@@ -98,7 +99,8 @@ a:hover {
 
 .dropdown-menu li a {
 	padding: 5px 5px;
-	font-weight: 300;
+	font-weight: 400;
+	color: #d8b13a;
 }
 
 .multi-column-dropdown {
@@ -106,29 +108,29 @@ a:hover {
 	padding: 0px;
 }
 
-.location {
+.location, .category {
 	background-color: #fffce7;
 }
 
-.dropdown-menu{
-	padding:0;
-	border:0px;
-	margin:auto;
-	
+.dropdown-menu {
+	padding: 0;
+	border: 0px;
+	margin: auto;
 }
+
 .multi-column-dropdown li a {
 	display: block;
 	clear: both;
 	line-height: 1.428571429;
-	color: #white;
+	color: #d8b13a;
 	white-space: normal;
-	padding : 5px;
-	width:100%;
+	padding: 5px;
+	width: 100%;
 }
 
 .multi-column-dropdown li a:hover {
 	text-decoration: none;
-	color: #262626;
+	color: #ffb100;
 	font-weight: bold;
 }
 
@@ -148,7 +150,7 @@ a:hover {
 	cursor: pointer;
 }
 
-.card-text:hover{
+.card-text:hover {
 	text-decoration: underline;
 }
 
@@ -184,11 +186,14 @@ a:hover {
 }
 </style>
 <body>
-	
+
 	<div id=wrapper>
 		<div id=header class=row>
 
-			<div class="col-12 col-lg-4"><button class="btn btn-outline-warning my-2 my-sm-0" type="button" id=logo>Logo</button></div>
+			<div class="col-12 col-lg-4">
+				<button class="btn btn-outline-warning my-2 my-sm-0" type="button"
+					id=logo>Logo</button>
+			</div>
 			<div class="col-12 col-lg-4" id=search>
 				<form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search"
@@ -205,57 +210,46 @@ a:hover {
 		<div id=navi>
 			<nav class="navbar navbar-expand navbar-light">
 				<ul class="nav justify-content-center">
-					<li class="nav-item"><a class="nav-link active" href="info.category">추천</a>
-					</li>
+					<li class="nav-item"><a class="nav-link active"
+						href="info.category?category=main">추천</a></li>
 					<li class="nav-item dropdown has-megamenu"><a href="#"
 						class="dropdown-toggle nav-link" data-toggle="dropdown"
 						d="navbarDropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">카테고리</a>
 
 						<ul class="dropdown-menu multi-column columns-6">
-							<div class="row location">
+							<div class="row category">
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li>
-										<a href="info.category?category=design">
-										디자인
-										<input type=hidden value="design" class=cate>
-										</a>
-										</li>
-										
+										<li><a href="info.category?category=design"> 디자인 <input
+												type=hidden value="design" class=cate>
+										</a></li>
+
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li>
-										<a href="info.category?category=it" class=cateA>IT </a>
-										<input type=hidden value="it" class=cate>
-										</li>
-										
+										<li><a href="info.category?category=it" class=cateA>IT
+										</a> <input type=hidden value="it" class=cate></li>
+
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li>
-										<a href="info.category?category=lang">언어 </a>
-										<input type=hidden value="lang" class=cate>
-										</li>
+										<li><a href="info.category?category=lang">언어 </a> <input
+											type=hidden value="lang" class=cate></li>
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li>
-										<a href="info.category?category=life">라이프 스타일 </a>
-										<input type=hidden value="life" class=cate>
-										</li>
+										<li><a href="info.category?category=life">라이프 스타일 </a> <input
+											type=hidden value="life" class=cate></li>
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li>
-										<a href="info.category?category=money">제테크 </a>
-										<input type=hidden value="beauty" class=cate>
-										</li>
+										<li><a href="info.category?category=money">제테크 </a> <input
+											type=hidden value="beauty" class=cate></li>
 									</ul>
 								</div>
 							</div>
@@ -411,50 +405,49 @@ a:hover {
 									<span>${list.info_avgstar }</span> | <span>${list.info_addr }</span>
 								</div>
 								<div>
-								<span>${list.info_price }원</span> | <span>${list.m_nickname }</span>
+									<span>${list.info_price }원</span> | <span>${list.m_nickname }</span>
 								</div>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
-				<div id=naviBox>
-					<c:forEach var="i" begin="0" end="${size-1}">
-						<button class="naviBtn">${navi[i] }</button>
-					</c:forEach>
-				</div>
 			</div>
-
-			<div id=footer class="row">
-				<div class="col-12 col-md-8"></div>
-				<div class="col-12 col-md-4" id=sns>
-					<img src="블로그.png"> <img src="인스타그램.png"> <img
-						src="트위터.png"> <img src="페이스북.png">
-				</div>
+			<div id=naviBox class="row justify-content-center">
+				<c:forEach var="i" begin="0" end="${size-1}">
+					<form action="info.category" method="post" class=btnForm>
+<%-- 					<button class="naviBtn">${navi[i] }</button> --%>
+					<input type=submit value=${navi[i]} class="naviBtn" name="nowPage">
+					</form>
+				</c:forEach>
 			</div>
 		</div>
-		
-		
+		<div id=footer class="row">
+			<div class="col-12 col-md-8"></div>
+			<div class="col-12 col-md-4" id=sns>
+				<img src="블로그.png"> <img src="인스타그램.png"> <img
+					src="트위터.png"> <img src="페이스북.png">
+			</div>
+		</div>
+
 		<script>
-			$(".naviBtn").on("click",function(){
-				location.href="info.category?nowPage="+$(this).text();
-			})
 			
 			$(".custom-select").on("click",function(){
 				var select = $(this).val();
 				console.log(select);
-// 				var category = $(".cateA").on("click",function(){
-// 					this.$(".cate").val();
-// 				}) 
-// 				console.log(category);
+
 				if(select == 'info_price' || select == 'info_classid desc' || select == 'info_avgstar desc'){
 					location.href="info.category?select="+select;
-// 					"&category="+category;
 				}
+				
 			})
+			
+			
 			
 			$("#logo").on("click",function(){
 				location.href="index.jsp";
 			})
+			
+			
 		</script>
 </body>
 </html>

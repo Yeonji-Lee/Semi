@@ -13,7 +13,7 @@
 
 <script>
  $("button").on("click",function(){
-	 location.href="info.category";
+	 location.href="info.category?category=main";
  })
 </script>
 </body>
