@@ -49,6 +49,7 @@ public class categoryController extends HttpServlet {
 				String category = request.getParameter("category");
 				String ssCategory = (String) request.getSession().getAttribute("ssCategory");
 				String addr = request.getParameter("addr");
+				String ssAddr = (String) request.getSession().getAttribute("ssAddr");
 				
 				if(select == null) {
 					select = ssSelect;
@@ -56,29 +57,34 @@ public class categoryController extends HttpServlet {
 				if(category == null) {
 					category = ssCategory;
 				}	
-	
-				List<CategoryDTO> list = null;
+				if(addr == null) {
+					addr = ssAddr;
+				}else if(addr.equals("all")) {
+					addr = null;
+				}
 				
-				//System.out.println("select:"+select+" category:"+category+" addr:"+addr);
+				List<CategoryDTO> list = null;	
+				System.out.println("select:"+select+" category:"+category+" addr:"+addr+" ssAddr:" +ssAddr);
 				
 				
 				//1.추천 부분
+				System.out.println("여기1");
 				if(select == null && category.contentEquals("main") || category ==null && addr == null) {
 					request.getSession().setAttribute("ssSelect", select);
 					request.getSession().setAttribute("ssCategory", "main");
-					list = dao.getInfoBySelect(select, start, end);
-					
+					list = dao.getInfoBySelect(select, start, end);		
 				}
 				//1-1. 추천 부분 - 셀렉트있는 경우
+				System.out.println("여기1-1");
 				if (category.contentEquals("main") || category ==null && addr == null) {
 					request.getSession().setAttribute("ssSelect", select);
 					request.getSession().setAttribute("ssCategory", "main");
 					list = dao.getInfoBySelect(select, start, end);	
 					recordTotalCount = dao.recordTotalCount();
-					
-
+	
 				//2. 카테고리 부분
 				}else if(addr == null){
+					System.out.println("여기2");
 					System.out.println("카테고리:"+category);
 					System.out.println("select:"+select);
 					request.getSession().setAttribute("ssSelect", select);
@@ -87,9 +93,11 @@ public class categoryController extends HttpServlet {
 					recordTotalCount = dao.getTotalByMenu("info_category", category);
 					
 				//3. 지역 부분	
-				}else {	
+				}else{	
+					System.out.println("여기3");
 					request.getSession().setAttribute("ssSelect", select);
-					System.out.println("addr"+addr);
+					request.getSession().setAttribute("ssAddr", addr);
+					System.out.println("addr:"+addr);
 					if(addr.equals("se")) {
 						addr = "서울";
 					}else if(addr.equals("kk")) {

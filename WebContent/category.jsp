@@ -221,7 +221,7 @@ a:hover {
 							<div class="row category">
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=design&select=info_avgstar desc"> 디자인 <input
+										<li><a href="info.category?category=design&select=info_avgstar desc&addr=all"> 디자인 <input
 												type=hidden value="design" class=cate>
 										</a></li>
 
@@ -229,26 +229,26 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=it&select=info_avgstar desc" class=cateA>IT
+										<li><a href="info.category?category=it&select=info_avgstar desc&addr=all" class=cateA>IT
 										</a> <input type=hidden value="it" class=cate></li>
 
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=lang&select=info_avgstar desc">언어 </a> <input
+										<li><a href="info.category?category=lang&select=info_avgstar desc&addr=all">언어 </a> <input
 											type=hidden value="lang" class=cate></li>
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2  locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=life&select=info_avgstar desc">라이프 스타일 </a> <input
+										<li><a href="info.category?category=life&select=info_avgstar desc&addr=all">라이프 스타일 </a> <input
 											type=hidden value="life" class=cate></li>
 									</ul>
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=money&select=info_avgstar desc">제테크 </a> <input
+										<li><a href="info.category?category=money&select=info_avgstar desc&addr=all">제테크 </a> <input
 											type=hidden value="beauty" class=cate></li>
 									</ul>
 								</div>
@@ -363,7 +363,7 @@ a:hover {
 						<!-- N명참여 배치용 -->
 						<span class="count"> <span
 							class="badge badge-pill badge-success"> <span
-								class="badge badge-success">${list.totalCount }</span> 명 참여
+								class="badge badge-success">${list.totalcount }</span> 명 참여
 						</span>
 						</span>
 						<!----------------->

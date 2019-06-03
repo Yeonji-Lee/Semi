@@ -82,8 +82,8 @@ public class CategoryDTO {
 	public int getTotalcount() {
 		return totalcount;
 	}
-	public void setTotalcount(int totalCount) {
-		this.totalcount = totalCount;
+	public void setTotalcount(int totalcount) {
+		this.totalcount = totalcount;
 	}
 	public String getM_nickname() {
 		return m_nickname;
