@@ -15,12 +15,17 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <style>
-* {
-	font-family: 'Roboto', sans-serif;
+*{
+font-family: 'Noto Sans KR', sans-serif;
+}
+
+#logo{
+position: relative;
+bottom:20px;
+cursor: pointer;
 }
 
 div {
@@ -31,6 +36,17 @@ div {
 #header {
 	height: 200px;
 	width: 100%;
+	padding:64px 32px;
+}
+
+.headBtn {
+	color: white;
+}
+
+.headBtn:hover {
+	background-color: burlywood;
+	border: 1px solid burlywood;
+	color: white;
 }
 
 #navi {
@@ -189,21 +205,24 @@ a:hover {
 
 	<div id=wrapper>
 		<div id=header class=row>
-
 			<div class="col-12 col-lg-4">
-				<button class="btn btn-outline-warning my-2 my-sm-0" type="button"
-					id=logo>Logo</button>
+				<img src="logo.png" id=logo>
 			</div>
 			<div class="col-12 col-lg-4" id=search>
 				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+					<div class="row justify-content-center">
+						<input class="form-control mr-sm-2" type="search"
+							placeholder="취미를 검색해 보세요!" aria-label="Search">
+						<button class="btn btn-warning my-2 my-sm-0 headBtn"
+							type="submit">Search</button>
+					</div>
 				</form>
 			</div>
 			<div class="col-12 col-lg-4">
-				<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">join</button>
-				<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">login</button>
+				<button class="btn btn-warning my-2 my-sm-0 headBtn" type="submit">join</button>
+				<button class="btn btn-warning my-2 my-sm-0 headBtn" type="submit">login</button>
+				<button class="btn btn-warning my-2 my-sm-0 headBtn" type="submit"
+					id=mypage>mypage</button>
 			</div>
 		</div>
 
@@ -347,7 +366,7 @@ a:hover {
 				</ul>
 			</nav>
 		</div>
-
+</div>
 		<div id=content>
 			<select class="custom-select">
 				<option selected>분류</option>
@@ -402,7 +421,7 @@ a:hover {
 									<b>${list.info_title }</b>
 								</div>
 								<div>
-									<span>${list.info_avgstar }</span> | <span>${list.info_addr }</span>
+									<span>${list.info_avgstar }</span> | <span>${list.info_addr2 }</span>
 								</div>
 								<div>
 									<span>${list.info_price }원</span> | <span>${list.m_nickname }</span>

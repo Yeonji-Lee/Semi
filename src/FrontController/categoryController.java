@@ -89,8 +89,22 @@ public class categoryController extends HttpServlet {
 					System.out.println("select:"+select);
 					request.getSession().setAttribute("ssSelect", select);
 					request.getSession().setAttribute("ssCategory", category);
-					list = dao.getInfoByCategory(select, category, start, end);
-					recordTotalCount = dao.getTotalByMenu("info_category", category);
+					
+					String dbCate = null;
+					if(category.equals("design")) {
+						dbCate = "디자인";
+					}else if(category.equals("it")) {
+						dbCate = "IT";
+					}else if(category.equals("lang")) {
+						dbCate = "언어";
+					}else if(category.equals("life")) {
+						dbCate = "라이프스타일";
+					}else if(category.equals("money")) {
+						dbCate = "재테크";
+					}
+					
+					list = dao.getInfoByCategory(select, dbCate, start, end);
+					recordTotalCount = dao.getTotalByMenu("info_category", dbCate);
 					
 				//3. 지역 부분	
 				}else{	

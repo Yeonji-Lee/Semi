@@ -27,7 +27,7 @@ public class categoryDAO {
 
 	
 	public List<CategoryDTO> getInfoBySelect(String select, int start, int end) throws Exception {
-		String sql = "select row_number() over(order by "+select+") as rown, info_classid, info_title, info_addr, info_avgstar, info_price, info_img1, info_img2, info_img3 from (select row_number() over(order by info_avgstar desc) as rown, classinfo.* from classinfo) where rown between ? and ?";
+		String sql = "select row_number() over(order by "+select+") as rown, info_classid, info_title, info_addr2, info_avgstar, info_price, info_img1, info_img2, info_img3 from (select row_number() over(order by info_avgstar desc) as rown, classinfo.* from classinfo) where rown between ? and ?";
 		Connection con = this.getConnection();	
 		PreparedStatement pstat = con.prepareStatement(sql);
 		//pstat.setString(1, select);		
@@ -38,7 +38,7 @@ public class categoryDAO {
 		while(rs.next()) {
 			CategoryDTO dto = new CategoryDTO();
 			dto.setInfo_title(rs.getString("info_title"));
-			dto.setInfo_addr(rs.getString("info_addr"));
+			dto.setInfo_addr2(rs.getString("info_addr2"));
 			dto.setInfo_avgstar(rs.getString("info_avgstar"));
 			dto.setInfo_price(rs.getInt("info_price"));
 			dto.setInfo_img1(rs.getString("info_img1"));
@@ -49,11 +49,13 @@ public class categoryDAO {
 			//�� �����ο� set
 			int count = this.getTotalForCategory(classid);
 			dto.setTotalcount(count);
-			list.add(dto);
+			
 			//Ʃ������ set
 			String[] tutor = this.getTutorInfoForCategory(classid);
 			dto.setM_nickname(tutor[0]);
 			dto.setM_photo(tutor[1]);
+			
+			list.add(dto);
 		}
 		rs.close();
 		con.close();
@@ -61,46 +63,48 @@ public class categoryDAO {
 	}
 	
 	public List<CategoryDTO> getInfoByCategory(String select, String category, int start, int end) throws Exception {
-		String sql = "select row_number() over(order by "+ select +") as rown, info_classid, info_title, info_addr, info_avgstar, info_price, info_img1, info_img2, info_img3 from (select row_number() over(order by info_classid desc) as rown, classinfo.* "
-				+ "from classinfo where info_category=?)  where rown between ? and ? ";
+		String sql = "select row_number() over(order by "+ select +") as rown, info_classid, info_title, info_addr2, info_avgstar, info_price, info_img1, info_img2, info_img3 from (select row_number() over(order by info_classid desc) as rown, classinfo.* "
+				+ "from classinfo where info_category= ? ) where rown between ? and ? ";
 		Connection con = this.getConnection();	
 		PreparedStatement pstat = con.prepareStatement(sql);
+		System.out.println(category);
 		pstat.setString(1, category);
 		pstat.setInt(2, start);
 		pstat.setInt(3, end);
 		ResultSet rs = pstat.executeQuery();
 		List<CategoryDTO> list = new ArrayList<>();
-		while(rs.next()) {
+		while(rs.next()) {		
 			CategoryDTO dto = new CategoryDTO();
 			dto.setInfo_title(rs.getString("info_title"));
-			dto.setInfo_addr(rs.getString("info_addr"));
+			dto.setInfo_addr2(rs.getString("info_addr2"));
 			dto.setInfo_avgstar(rs.getString("info_avgstar"));
 			dto.setInfo_price(rs.getInt("info_price"));
 			dto.setInfo_img1(rs.getString("info_img1"));
 			dto.setInfo_img2(rs.getString("info_img2"));
 			dto.setInfo_img3(rs.getString("info_img3"));
 			
-			int classid = rs.getInt("info_classid");
-			//�� �����ο� set
+			int classid = rs.getInt("info_classid");	
 			int count = this.getTotalForCategory(classid);
 			dto.setTotalcount(count);
-			list.add(dto);
-			//Ʃ������ set
+		
 			String[] tutor = this.getTutorInfoForCategory(classid);
 			dto.setM_nickname(tutor[0]);
 			dto.setM_photo(tutor[1]);
+			
+			list.add(dto);	
+			System.out.println("닉네임 : " + list.get(0).getM_nickname());
 		}
 		con.close();
 		return list;
 	}
 	
 		
-	public List<CategoryDTO> getInfoByLocation(String select, String addr, int start, int end) throws Exception {
-		String sql = "select row_number() over(order by "+ select +") as rown, info_classid, info_title, info_addr, info_avgstar, info_price, info_img1, info_img2, info_img3 from (select row_number() over(order by info_classid desc) as rown, classinfo.* "
-				+ "from classinfo where info_addr like ?)  where rown between ? and ?";
+	public List<CategoryDTO> getInfoByLocation(String select, String addr2, int start, int end) throws Exception {
+		String sql = "select row_number() over(order by "+ select +") as rown, info_classid, info_title, info_addr2, info_avgstar, info_price, info_img1, info_img2, info_img3 from (select row_number() over(order by info_classid desc) as rown, classinfo.* "
+				+ "from classinfo where info_addr2 like ?)  where rown between ? and ?";
 		Connection con = this.getConnection();	
 		PreparedStatement pstat = con.prepareStatement(sql);
-		pstat.setString(1, "%"+addr+"%");
+		pstat.setString(1, "%"+addr2+"%");
 		pstat.setInt(2, start);
 		pstat.setInt(3, end);
 		ResultSet rs = pstat.executeQuery();
@@ -108,7 +112,7 @@ public class categoryDAO {
 		while(rs.next()) {
 			CategoryDTO dto = new CategoryDTO();
 			dto.setInfo_title(rs.getString("info_title"));
-			dto.setInfo_addr(rs.getString("info_addr"));
+			dto.setInfo_addr2(rs.getString("info_addr2"));
 			dto.setInfo_avgstar(rs.getString("info_avgstar"));
 			dto.setInfo_price(rs.getInt("info_price"));
 			dto.setInfo_img1(rs.getString("info_img1"));
@@ -119,11 +123,12 @@ public class categoryDAO {
 			//�� �����ο� set
 			int count = this.getTotalForCategory(classid);
 			dto.setTotalcount(count);
-			list.add(dto);
 			//Ʃ������ set
 			String[] tutor = this.getTutorInfoForCategory(classid);
 			dto.setM_nickname(tutor[0]);
 			dto.setM_photo(tutor[1]);
+			
+			list.add(dto);
 		}
 		con.close();
 		return list;

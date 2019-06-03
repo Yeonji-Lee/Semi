@@ -3,7 +3,7 @@ package semi.dto;
 public class CategoryDTO {
 	private int info_classid;
 	private String info_title;
-	private String info_addr;
+	private String info_addr2;
 	private String info_avgstar;
 	private int info_price;
 	private String info_img1;
@@ -16,12 +16,12 @@ public class CategoryDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CategoryDTO(int info_classid, String info_title, String info_addr, String info_avgstar, int info_price,
+	public CategoryDTO(int info_classid, String info_title, String info_addr2, String info_avgstar, int info_price,
 			String info_img1, String info_img2, String info_img3, int totalcount, String m_nickname, String m_photo) {
 		super();
 		this.info_classid = info_classid;
 		this.info_title = info_title;
-		this.info_addr = info_addr;
+		this.info_addr2 = info_addr2;
 		this.info_avgstar = info_avgstar;
 		this.info_price = info_price;
 		this.info_img1 = info_img1;
@@ -43,11 +43,11 @@ public class CategoryDTO {
 	public void setInfo_title(String info_title) {
 		this.info_title = info_title;
 	}
-	public String getInfo_addr() {
-		return info_addr;
+	public String getInfo_addr2() {
+		return info_addr2;
 	}
-	public void setInfo_addr(String info_addr) {
-		this.info_addr = info_addr;
+	public void setInfo_addr2(String info_addr2) {
+		this.info_addr2 = info_addr2;
 	}
 	public String getInfo_avgstar() {
 		return info_avgstar;
