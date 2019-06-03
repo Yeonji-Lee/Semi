@@ -267,7 +267,7 @@ a:hover {
 								</div>
 								<div class="col-12 col-md-4 col-lg-2 locationMenu">
 									<ul class="multi-column-dropdown">
-										<li><a href="info.category?category=money&select=info_avgstar desc&addr=all">제테크 </a> <input
+										<li><a href="info.category?category=money&select=info_avgstar desc&addr=all">재테크 </a> <input
 											type=hidden value="beauty" class=cate></li>
 									</ul>
 								</div>
