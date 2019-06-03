@@ -1,0 +1,15 @@
+.settings
+
+.classpath
+
+.project
+
+*.log
+
+build
+
+MANIFEST.MF
+
+*.mp4
+
+*.avi
